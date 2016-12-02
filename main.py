@@ -147,7 +147,7 @@ def SendVote(voterID, vote, EM, BB, rsa_ukey, old_window):
 
 # Prompts user again for their voter registration number
 def NextVoter(voteIndex, vote, EM, BB, rsa_ukey, old_window):
-    numCandidates = len(vote)
+    numCandidates = len(vote) 
 
     # Iterations for ZKP
     t = 3
@@ -220,6 +220,8 @@ def NextVoter(voteIndex, vote, EM, BB, rsa_ukey, old_window):
         tk.Label(window, text='Please enter a voter registration (-1 to end)', font=('Helvetica', 14)).pack()
         ent = tk.Entry(window)
         ent.pack()
+
+        vote = [0 for i in range(numCandidates)]
         tk.Button(window, text='Next', command=lambda: SendVote(int(ent.get()), vote, EM, BB, rsa_ukey, window)).pack()
 
 # Closes all windows
